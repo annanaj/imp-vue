@@ -1,3 +1,16 @@
+<script>
+export default {
+    name: 'CounterBox',
+    data() {
+        return {
+            num1: 1,
+            num2: 1,
+            name: '',
+        };
+    },
+};
+</script>
+
 <template>
     <div class="wrapper">
         <h3>basic v-model.number</h3>
@@ -10,19 +23,6 @@
         </div>
     </div>
 </template>
-
-<script>
-export default {
-	name: 'CounterBox',
-	data() {
-		return {
-			num1: 1,
-			num2: 1,
-			name: '',
-		};
-	},
-};
-</script>
 
 <style scoped>
 .wrapper {

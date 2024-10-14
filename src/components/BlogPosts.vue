@@ -1,46 +1,26 @@
-<script>
+<script setup>
 import { ref } from 'vue';
 
-export default {
-    setup() {
-        // Reactive data for new blog post
-        const newPost = ref({
+const newPost = ref({
+    title: '',
+    author: '',
+    content: '',
+    label: '',
+});
+const posts = ref([]);
+const labelOptions = ['Technology', 'Education', 'Business'];
+
+const submitForm = () => {
+    if (newPost.value.title && newPost.value.author && newPost.value.content && newPost.value.label) {
+        posts.value.push({ ...newPost.value });
+
+        newPost.value = {
             title: '',
             author: '',
             content: '',
             label: '',
-        });
-
-        // Reactive list of blog posts
-        const posts = ref([]);
-
-        // Predefined label options for the select input
-        const labelOptions = ['Technology', 'Education', 'Business'];
-
-        // Function to add the new post to the posts array
-        const submitForm = () => {
-            if (newPost.value.title && newPost.value.author && newPost.value.content && newPost.value.label) {
-                // Add the new post to the list of posts
-                posts.value.push({ ...newPost.value });
-
-                // Reset form fields after submission
-                newPost.value = {
-                    title: '',
-                    author: '',
-                    content: '',
-                    label: '',
-                };
-            }
         };
-
-        // Return everything to be used in the template
-        return {
-            newPost,
-            posts,
-            labelOptions,
-            submitForm,
-        };
-    },
+    }
 };
 </script>
 
@@ -137,20 +117,6 @@ export default {
 
 .form {
     max-width: 300px;
-}
-
-button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #42b883;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #3daa79;
 }
 
 .blog-list {

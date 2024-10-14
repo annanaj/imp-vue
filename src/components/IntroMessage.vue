@@ -1,25 +1,19 @@
-<template>
-	<div>
-		<h1 class="h3">{{ msg }}</h1>
-	</div>
-</template>
-
 <script>
 export default {
-	name: 'IntroMessage',
-	props: {
-		msg: String
-	}
+    name: 'IntroMessage',
+    props: {
+        msg: String
+    }
 }
 </script>
 
-<style scoped>
-.h3 {
-    text-align: center;
-	font-size: 24px;
-    font-weight: bold;
-}
+<template>
+	<div>
+		<h1>{{ msg }}</h1>
+	</div>
+</template>
 
+<style scoped>
 ul {
 	list-style-type: none;
 	padding: 0;

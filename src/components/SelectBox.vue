@@ -1,3 +1,9 @@
+<script setup>
+import { ref } from 'vue';
+
+const name = ref('');
+</script>
+
 <template>
 	<div class="wrapper">
 		<select v-model="name">
@@ -9,12 +15,6 @@
 		<p v-if="name">I choose {{ name }}</p>
 	</div>
 </template>
-
-<script>
-export default {
-	name: 'SelectBox',
-};
-</script>
 
 <style scoped>
 .wrapper {

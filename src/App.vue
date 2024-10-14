@@ -1,8 +1,9 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import IntroMessage from './components/IntroMessage.vue'
 import BlogPosts from './components/BlogPosts.vue'
 import CounterBox from './components/CounterBox.vue'
+import IntroMessage from './components/IntroMessage.vue'
+import FormValidation from '@/components/FormValidation.vue'
 import SelectBox from './components/SelectBox.vue'
 </script>
 
@@ -23,10 +24,11 @@ import SelectBox from './components/SelectBox.vue'
         </nav>
     </header>
     <div class="main-container">
-        <IntroMessage msg="Vue playground" />
-        <CounterBox />
-        <SelectBox />
+        <IntroMessage msg="Vue sandbox" />
+        <FormValidation />
         <BlogPosts />
+        <SelectBox />
+        <CounterBox />
     </div>
     <RouterView />
 </template>
@@ -77,8 +79,8 @@ nav a:first-of-type {
 
 
 .main-container > * {
-    width: 80%;
-    border-bottom: 1px solid #ccc;
+    width: 90%;
+    border-bottom: 1px dashed #e6e6e6;
 }
 
 .main-container > *:first-child {
