@@ -1,19 +1,19 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const name = ref('');
+const name = ref('')
 </script>
 
 <template>
-	<div class="wrapper">
-		<select v-model="name">
-			<option>one</option>
-			<option>two</option>
-			<option>three</option>
-			<option>four</option>
-		</select>
-		<p v-if="name">I choose {{ name }}</p>
-	</div>
+    <div class="wrapper">
+        <select v-model="name">
+            <option>one</option>
+            <option>two</option>
+            <option>three</option>
+            <option>four</option>
+        </select>
+        <p v-if="name">I choose {{ name }}</p>
+    </div>
 </template>
 
 <style scoped>
@@ -27,5 +27,4 @@ const name = ref('');
 select {
     width: 100px;
 }
-
 </style>

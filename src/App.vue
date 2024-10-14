@@ -77,7 +77,6 @@ nav a:first-of-type {
     margin-block: 100px;
 }
 
-
 .main-container > * {
     width: 90%;
     border-bottom: 1px dashed #e6e6e6;

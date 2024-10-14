@@ -1,27 +1,32 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 const newPost = ref({
     title: '',
     author: '',
     content: '',
     label: '',
-});
-const posts = ref([]);
-const labelOptions = ['Technology', 'Education', 'Business'];
+})
+const posts = ref([])
+const labelOptions = ['Technology', 'Education', 'Business']
 
 const submitForm = () => {
-    if (newPost.value.title && newPost.value.author && newPost.value.content && newPost.value.label) {
-        posts.value.push({ ...newPost.value });
+    if (
+        newPost.value.title &&
+        newPost.value.author &&
+        newPost.value.content &&
+        newPost.value.label
+    ) {
+        posts.value.push({ ...newPost.value })
 
         newPost.value = {
             title: '',
             author: '',
             content: '',
             label: '',
-        };
+        }
     }
-};
+}
 </script>
 
 <template>
@@ -29,12 +34,7 @@ const submitForm = () => {
         <h3>Blog posts</h3>
         <form class="form" @submit.prevent="submitForm">
             <div>
-                <label
-                    for="title"
-                    class="visually-hidden"
-                >
-                    Title
-                </label>
+                <label for="title" class="visually-hidden"> Title </label>
                 <input
                     v-model="newPost.title"
                     type="text"
@@ -44,10 +44,7 @@ const submitForm = () => {
                 />
             </div>
             <div>
-                <label
-                    for="author"
-                    class="visually-hidden"
-                >
+                <label for="author" class="visually-hidden">
                     Author Name:
                 </label>
                 <input
@@ -59,12 +56,7 @@ const submitForm = () => {
                 />
             </div>
             <div>
-                <label
-                    for="content"
-                    class="visually-hidden"
-                >
-                    Content
-                </label>
+                <label for="content" class="visually-hidden"> Content </label>
                 <textarea
                     v-model="newPost.content"
                     id="content"
@@ -74,19 +66,14 @@ const submitForm = () => {
                 ></textarea>
             </div>
             <div>
-                <label
-                    for="label"
-                    class="visually-hidden"
-                >
-                    Post label
-                </label>
-                <select
-                    v-model="newPost.label"
-                    id="label"
-                    required
-                >
+                <label for="label" class="visually-hidden"> Post label </label>
+                <select v-model="newPost.label" id="label" required>
                     <option disabled value="">Select a label</option>
-                    <option v-for="option in labelOptions" :key="option" :value="option">
+                    <option
+                        v-for="option in labelOptions"
+                        :key="option"
+                        :value="option"
+                    >
                         {{ option }}
                     </option>
                 </select>
@@ -113,10 +100,6 @@ const submitForm = () => {
     flex-direction: column;
     align-items: center;
     padding-block: 30px;
-}
-
-.form {
-    max-width: 300px;
 }
 
 .blog-list {
