@@ -15,7 +15,7 @@ function onSubmit(values) {
 
 <template>
     <div class="wrapper">
-        <h3>Form validation with VeeValidate</h3>
+        <h3>Form Validation with VeeValidate</h3>
         <Form @submit="onSubmit" :validation-schema="schema">
             <label for="name" class="visually-hidden">Name</label>
             <Field
