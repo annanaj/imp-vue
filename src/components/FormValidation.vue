@@ -1,11 +1,11 @@
 <script setup>
 import { Field, Form, ErrorMessage } from 'vee-validate'
-import * as yup from 'yup'
+import { object, string, boolean } from 'yup'; // to lower yup import cost, instead of import *
 
-const schema = yup.object({
-    email: yup.string().email().required(),
-    name: yup.string().required(),
-    privacy: yup.boolean().oneOf([true], 'You must accept the privacy policy').required(),
+const schema = object({
+    email: string().email().required(),
+    name: string().required(),
+    privacy: boolean().oneOf([true], 'You must accept the privacy policy').required(),
 })
 
 function onSubmit(values) {
