@@ -3,12 +3,11 @@ import { ref } from 'vue'
 
 const num1 = ref(1)
 const num2 = ref(1)
-const name = ref('')
 </script>
 
 <template>
     <div class="wrapper">
-        <h3>basic v-model.number</h3>
+        <h3>Directives</h3>
         <div class="counter">
             <input v-model.number="num1" type="number" />
             <span>+</span>

@@ -1,10 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import BlogPosts from './components/BlogPosts.vue'
-import CounterBox from './components/CounterBox.vue'
-import IntroMessage from './components/IntroMessage.vue'
-import FormValidation from '@/components/FormValidation.vue'
-import SelectBox from './components/SelectBox.vue'
 </script>
 
 <template>
@@ -23,13 +18,6 @@ import SelectBox from './components/SelectBox.vue'
             <RouterLink to="/about">About</RouterLink>
         </nav>
     </header>
-    <div class="main-container">
-        <IntroMessage msg="Vue sandbox" />
-        <FormValidation />
-        <BlogPosts />
-        <SelectBox />
-        <CounterBox />
-    </div>
     <RouterView />
 </template>
 
