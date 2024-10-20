@@ -1,0 +1,13 @@
+services:
+  app:
+    image: node:18-alpine  # Use Node.js base image
+    working_dir: /app  # Set the working directory
+    volumes:
+      - .:/app  # Mount the current directory to /app inside the container
+      - /app/node_modules  # Ensure the node_modules inside the container are used
+    ports:
+      - "4000:4000"  # Expose Vite dev server port
+    command: |
+      sh -c "yarn install && yarn dev"  # Install dependencies and start the dev server
+    environment:
+      - NODE_ENV=development  # Set environment to development

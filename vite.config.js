@@ -14,5 +14,9 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  server: {
+    port: 4000,  // Make Vite listen on port 4000
+    host: true    // Ensure it binds to all network interfaces
   }
 })
