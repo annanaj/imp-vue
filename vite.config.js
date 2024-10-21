@@ -16,7 +16,7 @@ export default defineConfig({
     }
   },
   server: {
-    port: 4000,  // Make Vite listen on port 4000
+    port: 4040,  // Make Vite listen on port 4040
     host: true    // Ensure it binds to all network interfaces
   }
 })
