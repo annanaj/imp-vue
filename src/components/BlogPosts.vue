@@ -6,6 +6,7 @@ const newPost = ref({
     author: '',
     content: '',
     label: '',
+    image: null,
 })
 const posts = ref([])
 const labelOptions = ['Technology', 'Education', 'Business']
@@ -16,22 +17,30 @@ const submitForm = () => {
         newPost.value.author &&
         newPost.value.content &&
         newPost.value.label
-    ) {
-        posts.value.push({ ...newPost.value })
+    ) {posts.value.push({ ...newPost.value })
 
+        // Reset
         newPost.value = {
             title: '',
             author: '',
             content: '',
             label: '',
+            image: null,
         }
+    }
+}
+
+const handleFileChange = (event) => {
+    const file = event.target.files[0]
+    if (file) {
+        newPost.value.image = URL.createObjectURL(file)
     }
 }
 </script>
 
 <template>
     <div class="blog-post-form">
-        <h3>Blog posts</h3>
+        <h3>Blog post</h3>
         <form class="form" @submit.prevent="submitForm">
             <div>
                 <label for="title" class="visually-hidden"> Title </label>
@@ -66,6 +75,15 @@ const submitForm = () => {
                 ></textarea>
             </div>
             <div>
+                <label for="image" class="file-upload">Choose image</label>
+                <input
+                    type="file"
+                    id="image"
+                    accept="image/*"
+                    @change="handleFileChange"
+                />
+            </div>
+            <div>
                 <label for="label" class="visually-hidden"> Post label </label>
                 <select v-model="newPost.label" id="label" required>
                     <option disabled value="">Select a label</option>
@@ -81,10 +99,11 @@ const submitForm = () => {
             <button type="submit">Add Post</button>
         </form>
         <div v-if="posts.length > 0" class="blog-list">
-            <h2>All blog posts</h2>
+            <h3>All blog posts</h3>
             <ul>
                 <li v-for="(post, index) in posts" :key="index">
-                    <h3>{{ post.title }}</h3>
+                    <h4>{{ post.title }}</h4>
+                    <img class="post-img" v-if="post.image" :src="post.image" alt="Post Image" />
                     <p><strong>Author:</strong> {{ post.author }}</p>
                     <p>{{ post.content }}</p>
                     <p><strong>Label:</strong> {{ post.label }}</p>

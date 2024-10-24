@@ -58,10 +58,12 @@ nav a:first-of-type {
 
 .main-container {
     display: flex;
+    margin-inline: auto;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     width: 100%;
+    max-width: 700px;
     margin-block: 100px;
 }
 
