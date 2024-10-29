@@ -40,7 +40,7 @@ const handleFileChange = (event) => {
 
 <template>
     <div class="blog-post-form">
-        <h3>Blog post</h3>
+        <h3>Blog posts</h3>
         <form class="form" @submit.prevent="submitForm">
             <div>
                 <label for="title" class="visually-hidden"> Title </label>
